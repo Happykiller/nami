@@ -5,10 +5,10 @@ startall:
 	docker compose up --build -d
 
 down:
-	docker stop nami
+	docker stop nami certbot
 
 reset: down
-	docker rm nami
+	docker rm nami certbot
 
 help:
 	@echo ""
