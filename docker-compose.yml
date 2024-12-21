@@ -1,6 +1,4 @@
-## Fichier : docker-compose.yml
-version: '3.8'
-
+## docker-compose.yml
 services:
   nami:
     image: nginx
