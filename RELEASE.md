@@ -1,3 +1,6 @@
+# 1.7.0 27-12-2024
+* feat: Adjust params
+
 # 1.6.0 24-12-2024
 * Upgrade global security et resilience 
 
