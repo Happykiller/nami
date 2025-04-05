@@ -6,6 +6,9 @@ services:
       # Mount our custom Nginx config as read-only
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
 
+      # Mount our custom CORS config as read-only
+      - ./cors.conf:/etc/nginx/cors.conf:ro
+
       # Certbot challenge directory (read-only)
       - ./certbot/www/:/var/www/certbot/:ro
 
