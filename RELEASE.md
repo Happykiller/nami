@@ -1,3 +1,6 @@
+# 1.8.0 17-06-2025
+* fix: network interservices
+
 # 1.7.0 27-12-2024
 * feat: Adjust params
 
