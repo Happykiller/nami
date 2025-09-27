@@ -25,6 +25,17 @@ reset: down
 	docker rm nami certbot
 	docker volume prune -f
 
+# Renouvelle tous les certifs + reload automatique via deploy-hook
+renew:
+	docker compose run --rm certbot renew --webroot -w /var/www/certbot --deploy-hook /etc/letsencrypt/hooks/deploy-reload-nginx.sh
+
+# Émet un nouveau cert pour un domaine (usage: make cert DOMAIN=foo.example.com)
+cert:
+	@if [ -z "$(DOMAIN)" ]; then echo "Usage: make cert DOMAIN=example.com"; exit 1; fi
+	docker compose run --rm certbot certonly --webroot -w /var/www/certbot -d $(DOMAIN) --expand
+	docker compose exec -T nami nginx -s reload
+
+
 # Display user help for available commands
 help:
 	@echo "" 
